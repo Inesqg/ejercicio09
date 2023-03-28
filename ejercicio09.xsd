@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.w3.org/2001/XMLSchema.xsd">
+	<xs:element name='boletin'>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name='nombre' type='xs:string'/>
+				<xs:element name='ciclo' type='xs:string'/>
+				<xs:element name='curso' type=' curso'/>
+				<xs:element name='evaluacion' Type='evalu'/>
+				<xs:element name='cualificacion'>
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name='modulo' type='xs:string'/>
+							<xs:element name='curso' type='curso'/>
+							<xs:element name='nota' type='nota'/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name='curso'>
+		<xs:restriction base='xs:integer'>
+			<xs:pattern value='IFCD-/d'/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name='evalu'>
+		<xs:restriction base='xs:integer'>
+			<xs:pattern value='[1-3]'/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name='nota'>
+		<xs:restriction base='xs:float'>
+			<xs:pattern value='[0-10]'/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
